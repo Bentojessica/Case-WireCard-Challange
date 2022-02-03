@@ -4,7 +4,7 @@ export class Buyer {
         private name: string,
         private email: string,
         private cpf: string,
-        private id_client: SVGStringList
+        private id_client: string
     ){}
 
     static buyerModel(buyer: Buyer) {
