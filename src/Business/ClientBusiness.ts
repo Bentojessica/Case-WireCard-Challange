@@ -30,4 +30,12 @@ export class ClientBusiness {
 
         return newClient
     }
+
+    async getClientNameBusiness(name: string) {
+
+        const clientDataBase = new ClientDataBase()
+        const result = await clientDataBase.clientInformationName(name)
+
+        return result 
+    }
 }

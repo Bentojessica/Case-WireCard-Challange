@@ -34,4 +34,12 @@ export class BuyerBusiness {
 
         return newBuyer
     }
+
+    async getBuyerNameBusiness(name: string) {
+
+        const buyerDataBase = new BuyerDataBase()
+        const result = await buyerDataBase.buyerInformationName(name)
+
+        return result 
+    }
 }

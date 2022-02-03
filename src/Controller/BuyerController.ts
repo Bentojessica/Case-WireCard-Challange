@@ -28,4 +28,23 @@ export class BuyerController {
             }
         }
     }
+
+    async getBuyerName(req: Request, res: Response) {
+        try {
+
+            const { name } = req.params
+            
+            const buyerBusiness = new BuyerBusiness()
+            const result = await buyerBusiness.getBuyerNameBusiness(name)
+
+            res.status(200).send(result)
+            
+        } catch (error) {
+            if (error instanceof Error) {
+                res.status(400).json({message: error.message})
+            } else {
+                res.status(400).send({message: "Unexpected Error"})
+            }
+        }
+    }
 }
