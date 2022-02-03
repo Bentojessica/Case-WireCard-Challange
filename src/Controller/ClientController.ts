@@ -1,0 +1,31 @@
+import { Request, Response } from "express";
+import { ClientBusiness } from "../Business/ClientBusiness";
+import { ClientInsert } from "../Model/Client";
+
+export class ClientController {
+
+    async createClient(req: Request, res: Response) {
+        try {
+            const { name, cnpj, address, telephone } = req.body
+
+            const input: ClientInsert = {
+                name,
+                cnpj, 
+                address, 
+                telephone
+            }
+
+            const clientBusiness = new ClientBusiness()
+            const clientMessage = await clientBusiness.insertClient(input)
+
+            res.status(200).send({clientMessage})
+
+        } catch (error) {
+            if(error instanceof Error) {
+                res.status(400).json({message: error.message})
+            }else {
+                res.status(400).json({message: "Unexpected Error"})
+            }
+        }
+    }
+}
