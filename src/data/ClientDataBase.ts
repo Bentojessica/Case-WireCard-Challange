@@ -21,11 +21,11 @@ export class ClientDataBase extends BaseDataBase {
         }
     }
 
-    async clientFindByCnpj(cnpj: string): Promise<ClientInputDTO>{
+    async clientFindByName(name: string): Promise<ClientInputDTO>{
         try {
             const client = await this.getConnection()
             .select("*")
-            .where({cnpj: cnpj})
+            .where({name: name})
             .from(ClientDataBase.TABLE_NAME)
 
             return client[0]
@@ -42,8 +42,7 @@ export class ClientDataBase extends BaseDataBase {
     async clientInformationName(name: string){
         try {
             const clientInformation = await this.getConnection()
-            .select(["wirecard_client.id as Id", "wirecard_client.name as Nome do Cliente", "wirecard_client.cnpj as Cnpj",
-            "wirecard_client.address as Endereço", "wirecard_client.telephone as Telefone"])
+            .select(["wirecard_client.id as Id", "wirecard_client.name as Nome do Cliente"])
             .where({"wirecard_client.name": name})
             .from(ClientDataBase.TABLE_NAME)
 

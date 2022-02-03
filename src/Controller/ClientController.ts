@@ -6,13 +6,10 @@ export class ClientController {
 
     async createClient(req: Request, res: Response) {
         try {
-            const { name, cnpj, address, telephone } = req.body
+            const { name } = req.body
 
             const input: ClientInsert = {
-                name,
-                cnpj, 
-                address, 
-                telephone
+                name
             }
 
             const clientBusiness = new ClientBusiness()
