@@ -12,7 +12,7 @@ const clientController = new ClientController()
 const buyerController = new BuyerController()
 const paymentController = new PaymentController()
 
-paymentRouter.get("/:id", paymentController.getPaymentId) // Endpoint pega compras pelo id do payment
+paymentRouter.get("/:id_buyer", paymentController.getPaymentId) // Endpoint pega compras pelo id do payment
 buyerRouter.get("/:name", buyerController.getBuyerName) // Endpoint pega informações do comprador
 clientRouter.get("/:name", clientController.getClientName) // Endpoint pega informações do client
 clientRouter.post("/create", clientController.createClient) // Endpoint cadastrar o cliente "Loja"

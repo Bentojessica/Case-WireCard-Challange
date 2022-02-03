@@ -39,10 +39,10 @@ export class PaymentController {
     async getPaymentId(req: Request, res: Response) {
         try {
 
-            const { id } = req.params
+            const { id_buyer } = req.params
             
             const paymentBusiness = new PaymentBusiness()
-            const result = await paymentBusiness.getPaymentIdBusiness(id)
+            const result = await paymentBusiness.getPaymentIdBusiness(id_buyer)
 
             res.status(200).send(result)
         } catch (error) {

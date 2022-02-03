@@ -11,7 +11,6 @@ export class PaymentDataBase extends BaseDataBase {
             .insert(payment)
             .into(PaymentDataBase.TABLE_NAME)
 
-           
         } catch (error) {
             if (error instanceof Error) {
                 throw new Error(error.message)

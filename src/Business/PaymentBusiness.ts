@@ -41,8 +41,7 @@ export class PaymentBusiness {
 
             await paymentDataBase.insertPayment(paymentCard)
 
-           return `Purchase made successfully, we send more information about the purchase by 
-           e-mail, code of the purchase made is ${numberSlip}`
+           return `Purchase made successfully, follow the purchase id for more information.  ID purchase " ${paymentCard.id}` 
         }
 
 
@@ -57,7 +56,7 @@ export class PaymentBusiness {
 
             await paymentDataBase.insertPayment(paymentBank)
             
-           return "Purchase made successfully, we'll send you more information about the purchase by email, follow the bank slip number " + (`23427.435321.2353432.${numberSlip}`)
+           return ` ID purchase " ${paymentBank.id},   Here's the ticket code 23427.435321.2353432.${numberSlip}` + "        purchase processing"
         }
 
     }
