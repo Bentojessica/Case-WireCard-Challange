@@ -61,10 +61,9 @@ export class PaymentBusiness {
             await paymentDataBase.insertPayment(paymentBank)
 
             const numberSlip = Math.floor(Math.random() * 6553654324755658640).toString()
-
-            const information = `Follow the purchase id for more information, https://wirecard-backend.herokuapp.com/payment/${paymentBank.id}`
-            const result = `Here's the ticket code 23427.435321.2353432.${numberSlip},       purchase processing`
-           return information + result
+            const information = `Follow the purchase id for more information, https://wirecard-backend.herokuapp.com/payment/${paymentBank.id} - Here's the ticket code 23427.435321.2353432.${numberSlip}`
+            
+           return information 
         }
 
     }

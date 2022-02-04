@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { PaymentBusiness } from "../Business/PaymentBusiness";
 import {  PaymentInsert } from "../Model/Payment";
-import { HashManager } from "../Services/HashManager";
 
 export class PaymentController {
 
@@ -11,19 +10,17 @@ export class PaymentController {
                 name, email, cpf, amount, type, card_holder, card_number,
                 card_expiration, card_cvv, id_client
             } = req.body
-
-            const cypherCard_cvv = new HashManager().createHash(card_cvv)
-            const cypherCpf = new HashManager().createHash(cpf)
+            
             const input: PaymentInsert= {
                 name,
                 email,
-                cpf: cypherCpf,
+                cpf,
                 amount,
                 type,
                 card_holder,
                 card_number,
                 card_expiration,
-                card_cvv: cypherCard_cvv,
+                card_cvv,
                 id_client
             }
 
