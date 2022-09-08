@@ -8,7 +8,7 @@ Apos dentro da pasta roda o comando no terminal:
 
 **npm install** 
 ou
-** yarn install**
+**yarn install**
 
 para instalar todas as bibliotecas e frameworks
 
